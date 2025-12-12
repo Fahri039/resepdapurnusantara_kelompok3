@@ -1,0 +1,1033 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  background-image: url("https://wallpaperaccess.com/full/9328767.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #1e293b;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Transisi Halaman */
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Animasi Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Styling Navigasi */
+.nav-link {
+  color: white !important;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  color: #fde68a !important;
+  transform: translateY(-2px);
+}
+.nav-link.active-text {
+  color: white !important;
+  font-weight: 600;
+}
+
+/* Indikator Aktif */
+#active-indicator {
+  position: absolute;
+  background-color: rgba(217, 119, 6, 0.9);
+  border-radius: 9999px;
+  z-index: 5;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+/* Pastikan container navigasi memiliki position relative */
+#main-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Animasi Modal */
+#modal-content-container {
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Animasi Hover untuk Kartu Resep */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Animasi Button */
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 20px rgba(245, 158, 11, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Text Shadow untuk Judul */
+.text-shadow-lg {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #d97706, #c2410c);
+}
+
+/* Backdrop Blur Effect */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+}
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+/* Glassmorphism Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* =========================== */
+/* SOLUSI BARU UNTUK LINE CLAMP */
+/* =========================== */
+
+/* Truncate untuk judul */
+.truncate-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
+}
+
+/* Limit untuk deskripsi */
+.limit-description {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  max-height: 4.5em;
+  line-height: 1.5em;
+}
+
+/* Fallback untuk browser yang tidak support */
+.limit-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 4.5em;
+  line-height: 1.5em;
+}
+
+/* Transisi untuk semua elemen */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Notifikasi baru - di tengah atas */
+#temp-message {
+  animation: slideDown 0.3s ease-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 9999;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* =========================== */
+/* STYLING FILTER BUTTONS SARAN */
+/* =========================== */
+
+#suggestions-filter-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+#suggestions-filter-buttons .filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#suggestions-filter-buttons .active-filter {
+  background-color: #f59e0b !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  transform: translateY(-2px);
+}
+
+#suggestions-filter-buttons .inactive-filter {
+  background-color: #e5e7eb !important;
+  color: #4b5563 !important;
+}
+
+#suggestions-filter-buttons .filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================== */
+/* RESPONSIVE DESIGN */
+/* =========================== */
+
+/* Mobile (xs) - Layar kecil (max 640px) */
+@media (max-width: 640px) {
+  /* Header */
+  header .container {
+    padding: 0.5rem !important;
+  }
+
+  .header-title-container h1 {
+    font-size: 1rem !important;
+    line-height: 1.2;
+  }
+
+  /* Navigasi Utama */
+  #main-nav {
+    padding: 0.25rem;
+    gap: 0.125rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  #main-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    padding: 0.375rem 0.75rem !important;
+    font-size: 0.8rem !important;
+    flex-shrink: 0;
+    min-width: max-content;
+  }
+
+  /* Pastikan indikator tidak hilang saat mobile */
+  #active-indicator {
+    display: block !important;
+    visibility: visible !important;
+    transition: all 0.25s ease;
+  }
+
+  /* Tombol Akun di Navbar */
+  #nav-account {
+    width: 2rem !important;
+    height: 2rem !important;
+    padding: 0.25rem !important;
+    flex-shrink: 0;
+  }
+
+  #account-initial svg {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  /* Fix untuk header di mobile */
+  header .flex {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  /* Konten Utama */
+  .container.mx-auto.px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .py-8 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  /* Judul Halaman */
+  h2.text-4xl,
+  h2.text-3xl {
+    font-size: 1.5rem !important;
+  }
+
+  h2.text-5xl {
+    font-size: 1.75rem !important;
+  }
+
+  h3.text-3xl {
+    font-size: 1.25rem !important;
+  }
+
+  /* Kartu Resep */
+  .grid-cols-1,
+  .sm\:grid-cols-2,
+  .lg\:grid-cols-3,
+  .xl\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Form Input */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+
+  /* Modal Akun */
+  #account-modal .min-h-screen {
+    align-items: flex-start !important;
+    padding-top: 1rem !important;
+  }
+
+  #modal-content-container {
+    width: 95% !important;
+    max-width: none !important;
+    margin: 0 auto;
+  }
+
+  /* Footer */
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Tombol Jelajahi */
+  .btn-pulse {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Filter Kategori */
+  #category-filters {
+    justify-content: center !important;
+    margin-top: 0.75rem;
+  }
+
+  .filter-btn {
+    font-size: 0.7rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+
+  /* Search Input */
+  #search-input {
+    padding: 0.75rem 1rem 0.75rem 2.5rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Tombol Tambah Resep */
+  .flex-col.md\:flex-row > button {
+    width: 100% !important;
+    justify-content: center !important;
+    margin-top: 0.5rem !important;
+    font-size: 0.875rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+
+  /* Detail Resep */
+  #detail .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #detail h2 {
+    font-size: 1.5rem !important;
+  }
+
+  #detail h3 {
+    font-size: 1.25rem !important;
+  }
+
+  /* Tombol Filter Saran di Mobile */
+  #suggestions-filter-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  #suggestions-filter-buttons .filter-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem !important;
+  }
+}
+
+/* Tablet (sm) - Layar menengah (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Header */
+  .header-title-container h1 {
+    font-size: 1.1rem !important;
+  }
+
+  /* Navigasi */
+  #main-nav {
+    gap: 0.125rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Grid Resep */
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* Modal */
+  #modal-content-container {
+    width: 90% !important;
+  }
+
+  /* Judul */
+  h2.text-4xl {
+    font-size: 1.75rem !important;
+  }
+}
+
+/* Tablet Landscape (md) - (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Header */
+  .header-title-container h1 {
+    font-size: 1.3rem !important;
+  }
+
+  /* Navigasi */
+  .nav-link {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Grid Resep */
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Desktop (lg) - (1025px - 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* Grid Resep */
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Desktop XL (xl) - (1281px ke atas) */
+@media (min-width: 1281px) {
+  .xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Utility untuk height flexbox */
+.h-full {
+  height: 100%;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+/* Loading Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Shimmer Effect */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Fix untuk overflow di mobile */
+@media (max-width: 640px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  #main-nav {
+    margin-top: 0;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+/* Mobile menu untuk layar sangat kecil */
+@media (max-width: 480px) {
+  .header-title-container {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  #main-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  #main-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-link {
+    flex-shrink: 0;
+  }
+
+  /* Pastikan konten tidak terpotong */
+  .container.mx-auto {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+}
+
+/* Card height adjustment untuk seragam */
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.recipe-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card-description {
+  flex-grow: 1;
+}
+
+.recipe-card-button {
+  margin-top: auto;
+}
+
+/* Hamburger menu untuk mobile sangat kecil */
+@media (max-width: 380px) {
+  .nav-link {
+    font-size: 0.65rem !important;
+    padding: 0.25rem 0.375rem !important;
+  }
+
+  #nav-account {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+}
+
+/* Fix untuk gambar placeholder */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Pastikan grid gap konsisten */
+.gap-6 {
+  gap: 1rem !important;
+}
+
+@media (max-width: 640px) {
+  .gap-6 {
+    gap: 0.75rem !important;
+  }
+}
+
+/* Tombol Admin */
+.admin-btn {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-btn:hover {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  transform: translateY(-2px);
+}
+
+/* Tombol Kelola Resep */
+.manage-btn {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.manage-btn:hover {
+  background: linear-gradient(135deg, #ea580c, #c2410c);
+  transform: translateY(-2px);
+}
+
+/* Card untuk Kelola Resep */
+.manage-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.manage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* CSS untuk Filter Kategori */
+#category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  #category-filters {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+/* CSS untuk tombol tambah resep */
+.justify-end {
+  justify-content: flex-end;
+}
+
+/* Responsive layout untuk halaman resep */
+@media (max-width: 768px) {
+  .flex-col.md\:flex-row {
+    flex-direction: column;
+  }
+
+  .justify-end {
+    justify-content: center;
+  }
+}
+
+/* Error message styling */
+.text-red-500 {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Success message in form */
+.bg-green-100 {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Loading spinner */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive adjustments for register form */
+@media (max-width: 640px) {
+  .modal-content {
+    padding: 1rem !important;
+  }
+}
+
+/* Responsif untuk tombol kembali */
+@media (max-width: 640px) {
+  .text-white-btn {
+    font-size: 0.875rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+/* =========================== */
+/* ANIMASI TAMBAHAN YANG KEREN */
+/* =========================== */
+
+/* Animasi bounce */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* Animasi spin slow */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Animasi ping */
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Animasi pulse */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Animasi untuk tombol aktif */
+.active-filter {
+  animation: activePulse 2s infinite;
+}
+
+@keyframes activePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+  }
+}
+
+/* Animasi gradient border */
+@keyframes gradient-border {
+  0% {
+    border-color: #f59e0b;
+  }
+  25% {
+    border-color: #ea580c;
+  }
+  50% {
+    border-color: #fbbf24;
+  }
+  75% {
+    border-color: #f97316;
+  }
+  100% {
+    border-color: #f59e0b;
+  }
+}
+
+.animate-gradient-border {
+  animation: gradient-border 3s linear infinite;
+  border-width: 2px;
+  border-style: solid;
+}
+
+/* Animasi slide in dari kiri */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+/* Animasi slide in dari kanan */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s ease-out;
+}
+
+/* Animasi scale in */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* Animasi float */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animasi untuk success message */
+.success-message {
+  animation: successPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animasi untuk error message */
+.error-message {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+/* Animasi untuk loading */
+.loading-dots {
+  display: inline-block;
+}
+
+.loading-dots::after {
+  content: "";
+  animation: loadingDots 1.5s infinite;
+}
+
+@keyframes loadingDots {
+  0%,
+  20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60%,
+  100% {
+    content: "...";
+  }
+}
